@@ -7,10 +7,13 @@ export const RestaurantContainer = styled.li`
 `
 
 export const ImageContainer = styled.div`
-  height: 217px;
+  width: 29.5rem;
+  height: 13.5rem;
 
   img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `
 
