@@ -1,4 +1,5 @@
 import { Food } from '../../pages/Home'
+import { ModalState } from '../FoodsList'
 import { FoodCardContainer } from './styles'
 
 type Props = {
@@ -7,12 +8,7 @@ type Props = {
   image: string
   description: string
   id: number
-  setModal: React.Dispatch<
-    React.SetStateAction<{
-      isVisible: boolean
-    }>
-  >
-  setProduct: React.Dispatch<React.SetStateAction<Food | undefined>>
+  setModal: React.Dispatch<React.SetStateAction<ModalState>>
 }
 
 const FoodCard = ({
@@ -21,8 +17,7 @@ const FoodCard = ({
   description,
   id,
   products,
-  setModal,
-  setProduct
+  setModal
 }: Props) => {
   const getDescription = (description: string) => {
     if (description.length > 165) {
@@ -30,17 +25,16 @@ const FoodCard = ({
     }
   }
 
-  const getItem = (id: number) => {
-    const itemId = products.map((pro) => pro.id)
-    const filteredItemId = itemId.filter((currentId) => currentId === id)
-    return filteredItemId
-  }
-
   const addCarrinho = () => {
-    const [productId] = getItem(id)
-    setProduct(products[productId - 1])
+    const finalId = products[id - 1]
     setModal({
-      isVisible: true
+      isVisible: true,
+      id: finalId.id,
+      foto: finalId.foto,
+      nome: finalId.nome,
+      preco: finalId.preco,
+      porcao: finalId.porcao,
+      descricao: finalId.descricao
     })
   }
 

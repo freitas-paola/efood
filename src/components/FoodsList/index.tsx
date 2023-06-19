@@ -14,26 +14,41 @@ import { useState } from 'react'
 
 type Props = {
   products: Food[]
-  foto: string
-  nome: string
-  descricao: string
-  porcao: string
-  preco: number
-  setProduct: React.Dispatch<React.SetStateAction<Food | undefined>>
 }
 
-const FoodsList = ({
-  products,
-  foto,
-  nome,
-  descricao,
-  porcao,
-  preco,
-  setProduct
-}: Props) => {
-  const [modal, setModal] = useState({
-    isVisible: false
+export interface ModalState extends Food {
+  isVisible: boolean
+}
+
+const FoodsList = ({ products }: Props) => {
+  const [modal, setModal] = useState<ModalState>({
+    isVisible: false,
+    foto: '',
+    id: 0,
+    nome: '',
+    preco: 0,
+    porcao: '',
+    descricao: ''
   })
+
+  const closeModal = () => {
+    setModal({
+      isVisible: false,
+      foto: '',
+      id: 0,
+      nome: '',
+      preco: 0,
+      porcao: '',
+      descricao: ''
+    })
+  }
+
+  const formatPrice = (preco = 0) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(preco)
+  }
 
   return (
     <>
@@ -49,7 +64,6 @@ const FoodsList = ({
                 id={pro.id}
                 products={products}
                 setModal={setModal}
-                setProduct={setProduct}
               />
             ))}
           </FoodsListItems>
@@ -57,23 +71,16 @@ const FoodsList = ({
       </FoodsListContainer>
       <ModalContainer className={modal.isVisible ? 'visivel' : ''}>
         <ModalContent className="container">
-          <FoodImg src={foto} alt="" />
+          <FoodImg src={modal.foto} alt={modal.nome} />
           <ModalText>
-            <h4>{nome}</h4>
-            <p>{descricao}</p>
-            <p>Serve:{porcao}</p>
-            <button>Adicionar ao carrinho - {preco} </button>
+            <h4>{modal.nome}</h4>
+            <p>{modal.descricao}</p>
+            <p>Serve: {modal.porcao}</p>
+            <button>Adicionar ao carrinho - {formatPrice(modal.preco)} </button>
           </ModalText>
-          <Icon
-            src={close}
-            alt="Fechar"
-            onClick={() => setModal({ isVisible: false })}
-          />
+          <Icon src={close} alt="Fechar" onClick={() => closeModal()} />
         </ModalContent>
-        <div
-          className="overlay"
-          onClick={() => setModal({ isVisible: false })}
-        ></div>
+        <div className="overlay" onClick={() => closeModal()}></div>
       </ModalContainer>
     </>
   )
