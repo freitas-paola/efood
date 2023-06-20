@@ -25,16 +25,23 @@ const FoodCard = ({
     }
   }
 
+  const getItem = (id: number) => {
+    const itemId = products.map((pro) => pro.id)
+    const itemIndex = itemId.indexOf(id)
+    return itemIndex
+  }
+
   const addCarrinho = () => {
-    const finalId = products[id - 1]
+    const productIndex = getItem(id)
+    const finalItem = products[productIndex]
     setModal({
       isVisible: true,
-      id: finalId.id,
-      foto: finalId.foto,
-      nome: finalId.nome,
-      preco: finalId.preco,
-      porcao: finalId.porcao,
-      descricao: finalId.descricao
+      id: finalItem.id,
+      foto: finalItem.foto,
+      nome: finalItem.nome,
+      preco: finalItem.preco,
+      porcao: finalItem.porcao,
+      descricao: finalItem.descricao
     })
   }
 
