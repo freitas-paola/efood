@@ -1,16 +1,8 @@
 import { Food } from '../../pages/Home'
 import FoodCard from '../FoodCard'
-import {
-  FoodImg,
-  FoodsListContainer,
-  FoodsListItems,
-  Icon,
-  ModalContainer,
-  ModalContent,
-  ModalText
-} from './styles'
-import close from '../../assets/images/close.svg'
+import { FoodsListContainer, FoodsListItems } from './styles'
 import { useState } from 'react'
+import Modal from '../Modal'
 
 type Props = {
   products: Food[]
@@ -43,13 +35,6 @@ const FoodsList = ({ products }: Props) => {
     })
   }
 
-  const formatPrice = (preco = 0) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
-  }
-
   return (
     <>
       <FoodsListContainer>
@@ -69,19 +54,7 @@ const FoodsList = ({ products }: Props) => {
           </FoodsListItems>
         </div>
       </FoodsListContainer>
-      <ModalContainer className={modal.isVisible ? 'visivel' : ''}>
-        <ModalContent className="container">
-          <FoodImg src={modal.foto} alt={modal.nome} />
-          <ModalText>
-            <h4>{modal.nome}</h4>
-            <p>{modal.descricao}</p>
-            <p>Serve: {modal.porcao}</p>
-            <button>Adicionar ao carrinho - {formatPrice(modal.preco)} </button>
-          </ModalText>
-          <Icon src={close} alt="Fechar" onClick={() => closeModal()} />
-        </ModalContent>
-        <div className="overlay" onClick={() => closeModal()}></div>
-      </ModalContainer>
+      <Modal modal={modal} closeModal={closeModal} />
     </>
   )
 }
