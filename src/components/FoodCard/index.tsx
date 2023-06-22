@@ -1,4 +1,5 @@
 import { Food } from '../../pages/Home'
+import { Button } from '../../styles'
 import { ModalState } from '../FoodsList'
 import { FoodCardContainer } from './styles'
 
@@ -51,7 +52,7 @@ const FoodCard = ({
         <img src={image} alt={name} />
         <h3>{name}</h3>
         <p>{getDescription(description)}</p>
-        <button onClick={() => addCarrinho()}>Adicionar ao carrinho</button>
+        <Button onClick={() => addCarrinho()}>Adicionar ao carrinho</Button>
       </FoodCardContainer>
     </>
   )

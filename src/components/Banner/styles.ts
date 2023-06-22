@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Props } from '.'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const BannerContainer = styled.div<Omit<Props, 'name' | 'tipo'>>`
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -20,5 +20,14 @@ export const BannerContainer = styled.div<Omit<Props, 'name' | 'tipo'>>`
 
   h2 {
     padding-top: 9.75rem;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding-left: 1rem;
+    font-size: 1.8rem;
+
+    h2 {
+      padding-top: 7.5rem;
+    }
   }
 `

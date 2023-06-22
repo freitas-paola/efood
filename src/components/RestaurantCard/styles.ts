@@ -1,9 +1,13 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const RestaurantContainer = styled.li`
   width: 29.5rem;
   position: relative;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+  }
 `
 
 export const ImageContainer = styled.div`
@@ -14,6 +18,10 @@ export const ImageContainer = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 100%;
   }
 `
 
@@ -48,6 +56,12 @@ export const Text = styled.p`
   line-height: 1.3rem;
   padding-bottom: 1rem;
 `
+
+export const Infos = styled.div`
+  position: absolute;
+  top: 1rem;
+  right: 0.5rem;
+`
 export const Button = styled.button`
   display: inline-block;
   background-color: ${colors.pink};
@@ -63,9 +77,4 @@ export const Button = styled.button`
     text-decoration: none;
     color: ${colors.lightSalmon};
   }
-`
-export const Infos = styled.div`
-  position: absolute;
-  top: 1rem;
-  right: 0.5rem;
 `

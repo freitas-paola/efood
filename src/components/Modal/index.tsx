@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux'
+
 import {
   FoodImg,
   Icon,
@@ -7,18 +9,28 @@ import {
 } from './styles'
 import close from '../../assets/images/close.svg'
 import { ModalState } from '../FoodsList'
+import { add, open } from '../../store/reducers/cart'
+import { Button } from '../../styles'
 
 type Props = {
   modal: ModalState
   closeModal: () => void
 }
 
+export const formatPrice = (preco = 0) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(preco)
+}
+
 const Modal = ({ modal, closeModal }: Props) => {
-  const formatPrice = (preco = 0) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(add(modal))
+    dispatch(open())
+    closeModal()
   }
 
   return (
@@ -29,7 +41,9 @@ const Modal = ({ modal, closeModal }: Props) => {
           <h4>{modal.nome}</h4>
           <p>{modal.descricao}</p>
           <p>Serve: {modal.porcao}</p>
-          <button>Adicionar ao carrinho - {formatPrice(modal.preco)} </button>
+          <Button onClick={addToCart}>
+            Adicionar ao carrinho - {formatPrice(modal.preco)}{' '}
+          </Button>
         </ModalText>
         <Icon src={close} alt="Fechar" onClick={() => closeModal()} />
       </ModalContent>

@@ -6,8 +6,8 @@ import {
   TitleContainer,
   Text,
   Title,
-  Button,
-  Infos
+  Infos,
+  Button
 } from './styles'
 import star from '../../assets/images/star.svg'
 import Tag from '../Tag'

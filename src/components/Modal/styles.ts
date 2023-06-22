@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, Button, colors } from '../../styles'
 
 export const ModalContainer = styled.div`
   position: fixed;
@@ -14,6 +14,14 @@ export const ModalContainer = styled.div`
 
   &.visivel {
     display: flex;
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    align-items: space-between;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
   }
 
   .overlay {
@@ -31,11 +39,22 @@ export const ModalContent = styled.div`
   padding: 2rem;
   position: relative;
   z-index: 1;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+    padding: 2rem 1rem 1rem 1rem;
+  }
 `
 export const FoodImg = styled.img`
   width: 17.5rem;
   height: 17.5rem;
   object-fit: cover;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    height: 8rem;
+  }
 `
 export const ModalText = styled.div`
   color: ${colors.branco};
@@ -52,16 +71,26 @@ export const ModalText = styled.div`
     margin-bottom: 1.25rem;
   }
 
-  button {
-    padding: 0.25rem 0.5rem;
-    border: none;
-    background-color: ${colors.salmon};
-    color: ${colors.pink};
-    font-weight: bold;
+  ${Button} {
+    width: 14rem;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-left: 0;
+
+    p {
+      line-height: 1.1.rem;
+      margin-bottom: 1rem;
+    }
   }
 `
 export const Icon = styled.img`
   position: absolute;
   top: 1rem;
   right: 1rem;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
 `
