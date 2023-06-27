@@ -1,10 +1,10 @@
-import RestaurantHeader from '../../components/RestaurantHeader'
-
-import Banner from '../../components/Banner'
-import FoodsList from '../../components/FoodsList'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { RestaurantObj } from '../Home'
+
+import RestaurantHeader from '../../components/RestaurantHeader'
+import Banner from '../../components/Banner'
+import FoodsList from '../../components/FoodsList'
+import Loader from '../../components/Loader'
 
 const Restaurant = () => {
   const { id } = useParams()
@@ -18,7 +18,7 @@ const Restaurant = () => {
   }, [id])
 
   if (!restaurant) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   return (

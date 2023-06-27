@@ -13,12 +13,6 @@ export const FoodCardContainer = styled.li`
     height: 10.5rem;
   }
 
-  h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1.1rem;
-  }
-
   p {
     font-size: 0.87rem;
     line-height: 1.3rem;

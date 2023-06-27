@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { breakpoints, colors } from '../../styles'
-import lixo from '../../assets/images/lixo.svg'
 
 export const Overlay = styled.div`
   position: absolute;
@@ -26,6 +25,7 @@ export const CartContainer = styled.div`
     display: flex;
   }
 `
+
 export const Sidebar = styled.aside`
   background-color: ${colors.pink};
   z-index: 1;
@@ -35,62 +35,5 @@ export const Sidebar = styled.aside`
 
   @media (max-width: ${breakpoints.tablet}) {
     max-width: 70vw;
-  }
-`
-export const CartItem = styled.li`
-  display: flex;
-  background-color: ${colors.salmon};
-  padding-bottom: 0.75rem;
-  padding-top: 0.5rem;
-  position: relative;
-  margin-bottom: 1rem;
-
-  img {
-    width: 5rem;
-    height: 5rem;
-    object-fit: cover;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
-
-  div {
-    color: ${colors.pink};
-
-    h3 {
-      font-size: 1.1rem;
-      font-weight: bold;
-      padding-bottom: 1rem;
-
-      @media (max-width: ${breakpoints.tablet}) {
-        font-size: 1rem;
-      }
-    }
-
-    p {
-      font-size: 0.85rem;
-    }
-  }
-
-  button {
-    background-image: url(${lixo});
-    width: 1rem;
-    height: 1rem;
-    border: none;
-    background-color: transparent;
-    position: absolute;
-    bottom: 0.5rem;
-    right: 0.5rem;
-  }
-`
-export const Price = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
-
-  p {
-    font-weight: bold;
-    font-size: 0.85rem;
-    color: ${colors.salmon};
   }
 `

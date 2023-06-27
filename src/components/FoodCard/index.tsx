@@ -1,7 +1,7 @@
-import { Food } from '../../pages/Home'
-import { Button } from '../../styles'
 import { ModalState } from '../FoodsList'
+
 import { FoodCardContainer } from './styles'
+import { Button, Title } from '../../styles'
 
 type Props = {
   products: Food[]
@@ -50,7 +50,7 @@ const FoodCard = ({
     <>
       <FoodCardContainer>
         <img src={image} alt={name} />
-        <h3>{name}</h3>
+        <Title>{name}</Title>
         <p>{getDescription(description)}</p>
         <Button onClick={() => addCarrinho()}>Adicionar ao carrinho</Button>
       </FoodCardContainer>

@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+
 import logo from '../../assets/images/logo.svg'
 import { RootReducer } from '../../store'
-import { HeaderContainer } from './styles'
 import { open } from '../../store/reducers/cart'
+
+import { HeaderContainer } from './styles'
 
 const RestaurantHeader = () => {
   const dispatch = useDispatch()

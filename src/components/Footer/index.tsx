@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
-import { FooterContainer, FooterText, Icons, Logo, Text } from './styles'
+
 import logo from '../../assets/images/logo.svg'
 import facebook from '../../assets/images/facebook.svg'
 import instagram from '../../assets/images/instagram.svg'
 import twitter from '../../assets/images/twitter.svg'
+
+import { FooterContainer, FooterText, Icons, Logo, Text } from './styles'
 
 const Footer = () => (
   <FooterContainer>

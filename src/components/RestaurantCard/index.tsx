@@ -1,16 +1,9 @@
 import { Link } from 'react-router-dom'
-import {
-  ImageContainer,
-  RestaurantContainer,
-  TextContainer,
-  TitleContainer,
-  Text,
-  Title,
-  Infos,
-  Button
-} from './styles'
+
 import star from '../../assets/images/star.svg'
 import Tag from '../Tag'
+
+import * as S from './styles'
 
 type Props = {
   id: number
@@ -31,28 +24,28 @@ const RestaurantCard = ({
   descricao,
   capa
 }: Props) => (
-  <RestaurantContainer>
-    <ImageContainer>
+  <S.RestaurantContainer>
+    <S.ImageContainer>
       <img src={capa} alt="Restaurante" />
-    </ImageContainer>
-    <Infos>
+    </S.ImageContainer>
+    <S.Infos>
       {destacado ? <Tag>Destaque da semana</Tag> : ''}
       <Tag>{tipo}</Tag>
-    </Infos>
-    <TextContainer>
-      <TitleContainer>
-        <Title>{titulo}</Title>
+    </S.Infos>
+    <S.TextContainer>
+      <S.TitleContainer>
+        <S.Title>{titulo}</S.Title>
         <div>
-          <Title as="p">{avaliacao}</Title>
+          <S.Title as="p">{avaliacao}</S.Title>
           <img src={star} alt="star" />
         </div>
-      </TitleContainer>
-      <Text>{descricao}</Text>
-      <Button>
+      </S.TitleContainer>
+      <S.Text>{descricao}</S.Text>
+      <S.Button>
         <Link to={`/restaurante/${id}`}> Saiba mais</Link>
-      </Button>
-    </TextContainer>
-  </RestaurantContainer>
+      </S.Button>
+    </S.TextContainer>
+  </S.RestaurantContainer>
 )
 
 export default RestaurantCard

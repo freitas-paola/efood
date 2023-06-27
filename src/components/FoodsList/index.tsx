@@ -1,8 +1,9 @@
-import { Food } from '../../pages/Home'
-import FoodCard from '../FoodCard'
-import { FoodsListContainer, FoodsListItems } from './styles'
 import { useState } from 'react'
+
+import FoodCard from '../FoodCard'
 import Modal from '../Modal'
+
+import { FoodsListContainer, FoodsListItems } from './styles'
 
 type Props = {
   products: Food[]

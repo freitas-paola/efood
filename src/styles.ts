@@ -28,7 +28,7 @@ export const GlobalCSS = createGlobalStyle`
   margin: 0 auto;
 
   @media(max-width: ${breakpoints.desktop}) {
-  max-width: 80%;
+  width: 80%;
   overflow: hidden;
 }
 }
@@ -46,5 +46,20 @@ export const Button = styled.button`
   &:hover {
     background-color: ${colors.lightSalmon};
     cursor: pointer;
+  }
+
+  &.margin-bottom {
+    margin-bottom: 0.5rem;
+  }
+`
+
+export const Title = styled.h3`
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.1rem;
+  color: ${colors.salmon};
+
+  &.margin-bottom {
+    margin-bottom: 1rem;
   }
 `

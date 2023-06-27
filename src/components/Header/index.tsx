@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
-import { HeaderContainer, Title } from './styles'
+
 import logo from '../../assets/images/logo.svg'
+
+import { HeaderContainer, Title } from './styles'
 
 const Header = () => (
   <HeaderContainer>
